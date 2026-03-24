@@ -9,34 +9,35 @@ namespace Core.Makeup.View
         [Serializable]
         private class Slot
         {
-            public MakeupType Type;
+            public MakeupStyle Style;
             public MakeupItem Item;
         }
 
-        [SerializeField] private List<Slot> slots = new List<Slot>();
+        [SerializeField] private List<Slot> slots;
 
-        private Dictionary<MakeupType, MakeupItem> _map;
+        private Dictionary<MakeupStyle, MakeupItem> _map;
 
         private void Awake()
         {
-            _map = new Dictionary<MakeupType, MakeupItem>();
+            _map = new Dictionary<MakeupStyle, MakeupItem>();
+
             foreach (var slot in slots)
             {
                 if (slot != null && slot.Item != null)
                 {
-                    _map[slot.Type] = slot.Item;
+                    _map[slot.Style] = slot.Item;
                 }
             }
         }
 
-        public void ApplyMakeup(MakeupType type, float alpha)
+        public void ApplyMakeup(MakeupStyle style, float alpha)
         {
             if (_map == null)
             {
                 return;
             }
 
-            if (_map.TryGetValue(type, out var item))
+            if (_map.TryGetValue(style, out var item))
             {
                 item.PlayMakeupAnimation(alpha);
             }

@@ -9,6 +9,7 @@ namespace Core.Makeup
         void PickUp(RectTransform itemRoot, Action onComplete);
         void MoveTo(RectTransform target, Action onComplete);
         void PlayApply(Action onComplete);
+        void PlayPickColor(Action onComplete);
         void ReturnTo(RectTransform itemDefaultPosition, Action onComplete);
         void EnableDragging(bool enable);
         void SetItemGraphics(GameObject graphics);

@@ -28,14 +28,14 @@ namespace Core.Makeup
             _state = MakeupState.Idle;
         }
 
-        public void StartStep(MakeupType type)
+        public void StartStep(MakeupStyle style)
         {
             if (_state != MakeupState.Idle)
             {
                 return;
             }
 
-            if (_stepProvider == null || !_stepProvider.TryGetStep(type, out _currentStep))
+            if (_stepProvider == null || !_stepProvider.TryGetStep(style, out _currentStep))
             {
                 _hasStep = false;
                 return;
@@ -44,19 +44,46 @@ namespace Core.Makeup
             _hasStep = true;
             _state = MakeupState.Pickup;
 
-            _handView.ShowHand(() =>
+            if (_currentStep.Style.Type == MakeupType.Cream)
             {
-                _handView.PickUp(_currentStep.ItemRoot, () =>
+                _handView.ShowHand(() =>
                 {
-                    _handView.SetItemGraphics(_currentStep.ItemGraphics);
-                    _currentStep.ItemGraphics.SetActive(false);
-                    _handView.MoveTo(_currentStep.MakeupPosition, () =>
+                    _handView.PickUp(_currentStep.ItemRoot, () =>
                     {
-                        _handView.EnableDragging(true);
-                        _state = MakeupState.Control;
+                        _handView.SetItemGraphics(_currentStep.ItemGraphics);
+                        _currentStep.ItemGraphics.SetActive(false);
+                        _handView.MoveTo(_currentStep.MakeupPosition, () =>
+                        {
+                            _handView.EnableDragging(true);
+                            _state = MakeupState.Control;
+                        });
                     });
                 });
-            });
+            }
+
+            if (_currentStep.Style.Type == MakeupType.Eyeshadow)
+            {
+                _handView.ShowHand(() =>
+                {
+                    _handView.PickUp(_currentStep.ItemRoot, () =>
+                    {
+                        _handView.SetItemGraphics(_currentStep.ItemGraphics);
+                        _currentStep.ItemGraphics.SetActive(false);
+                        _handView.MoveTo(_currentStep.ColorPalettePosition,
+                            () =>
+                            {
+                                _handView.PlayPickColor(() =>
+                                {
+                                    _handView.MoveTo(_currentStep.MakeupPosition, () =>
+                                    {
+                                        _handView.EnableDragging(true);
+                                        _state = MakeupState.Control;
+                                    });
+                                });
+                            });
+                    });
+                });
+            }
         }
 
         public void OnHandReleased(Vector2 screenPos)
@@ -81,7 +108,7 @@ namespace Core.Makeup
                     });
                 });
 
-                _resultRenderer?.ApplyMakeup(_currentStep.Type, _currentStep.ResultAlpha);
+                _resultRenderer?.ApplyMakeup(_currentStep.Style, _currentStep.ResultAlpha);
             }
         }
 

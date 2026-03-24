@@ -10,18 +10,19 @@ namespace Core.Makeup
         [Serializable]
         public class SceneStep
         {
-            public MakeupType Type;
+            public MakeupStyle Style;
             public RectTransform ItemRoot;
             public RectTransform ItemDefaultPosition;
             public RectTransform MakeupPosition;
+            public RectTransform ColorPalettePosition;
             public GameObject ItemGraphics;
         }
 
         [SerializeField] private List<SceneStep> steps;
 
-        public bool TryGetSceneStep(MakeupType type, out SceneStep step)
+        public bool TryGetSceneStep(MakeupStyle style, out SceneStep step)
         {
-            step = steps.FirstOrDefault(x => x.Type == type);
+            step = steps.FirstOrDefault(x => x.Style.Equals(style));
             return step != null;
         }
     }

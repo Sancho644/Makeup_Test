@@ -15,7 +15,7 @@ namespace Core.Makeup
             _windowReferences = windowReferences;
         }
 
-        public bool TryGetStep(MakeupType type, out MakeupStepRuntime step)
+        public bool TryGetStep(MakeupStyle style, out MakeupStepRuntime step)
         {
             step = default;
 
@@ -24,21 +24,22 @@ namespace Core.Makeup
                 return false;
             }
 
-            if (!_staticSettings.TryGetStaticStep(type, out var staticStep))
+            if (!_staticSettings.TryGetStaticStep(style, out var staticStep))
             {
                 return false;
             }
 
-            if (!_windowReferences.TryGetSceneStep(type, out var sceneStep))
+            if (!_windowReferences.TryGetSceneStep(style, out var sceneStep))
             {
                 return false;
             }
 
             step = new MakeupStepRuntime(
-                type,
+                style,
                 sceneStep.ItemRoot,
                 sceneStep.ItemDefaultPosition,
                 sceneStep.MakeupPosition,
+                sceneStep.ColorPalettePosition,
                 sceneStep.ItemGraphics,
                 staticStep.ResultAlpha);
 

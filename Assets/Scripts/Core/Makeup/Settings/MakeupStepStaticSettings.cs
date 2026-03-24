@@ -13,15 +13,15 @@ namespace Core.Makeup.Settings
         [Serializable]
         public class StaticStep
         {
-            public MakeupType Type;
+            public MakeupStyle Style;
             public float ResultAlpha;
         }
 
         [SerializeField] private List<StaticStep> steps;
 
-        public bool TryGetStaticStep(MakeupType type, out StaticStep step)
+        public bool TryGetStaticStep(MakeupStyle style, out StaticStep step)
         {
-            step = steps.FirstOrDefault(x => x.Type == type);
+            step = steps.FirstOrDefault(x => x.Style.Equals(style));
             return step != null;
         }
     }

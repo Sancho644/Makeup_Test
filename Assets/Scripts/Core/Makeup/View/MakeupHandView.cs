@@ -5,81 +5,94 @@ namespace Core.Makeup.View
 {
     public class MakeupHandView : MonoBehaviour, IMakeupHandView
     {
-        [SerializeField] private MakeupHand hand;
+        [SerializeField] private HandAnimator handAnimator;
+        [SerializeField] private HandView handView;
 
         public void ShowHand(Action onComplete)
         {
-            if (hand == null)
+            if (handAnimator == null)
             {
                 onComplete?.Invoke();
                 return;
             }
 
-            hand.PlayEntranceHandAnimation(onComplete);
+            handAnimator.PlayEntranceHandAnimation(onComplete);
         }
 
         public void PickUp(RectTransform itemRoot, Action onComplete)
         {
-            if (hand == null)
+            if (handAnimator == null)
             {
                 onComplete?.Invoke();
                 return;
             }
 
-            hand.PlayPickupAnimation(itemRoot, onComplete);
+            handAnimator.PlayPickupAnimation(itemRoot, onComplete);
         }
         
         public void SetItemGraphics(GameObject graphics)
         {
-            if (hand == null)
+            if (handAnimator == null)
             {
                 return;
             }
 
-            hand.SetItemGraphics(graphics);
+            handAnimator.SetItemGraphics(graphics);
         }
 
         public void MoveTo(RectTransform target, Action onComplete)
         {
-            if (hand == null)
+            if (handAnimator == null)
             {
                 onComplete?.Invoke();
                 return;
             }
 
-            hand.MoveHand(target, onComplete);
+            handAnimator.MoveHand(target, onComplete);
         }
 
         public void PlayApply(Action onComplete)
         {
-            if (hand == null)
+            if (handAnimator == null)
             {
                 onComplete?.Invoke();
                 return;
             }
 
-            hand.PlayMakeupAnimation(onComplete);
+            handAnimator.PlayMakeupAnimation(onComplete);
+        }
+
+        public void PlayPickColor(Action onComplete)
+        {
+            if (handAnimator == null)
+            {
+                onComplete?.Invoke();
+                return;
+            }
+
+            handAnimator.PlayPickColorAnimation(onComplete);
+            
         }
 
         public void ReturnTo(RectTransform itemDefaultPosition, Action onComplete)
         {
-            if (hand == null)
+            if (handAnimator == null)
             {
                 onComplete?.Invoke();
                 return;
             }
 
-            hand.PlayFinishMakeupAnimation(itemDefaultPosition, onComplete);
+            handAnimator.PlayFinishMakeupAnimation(itemDefaultPosition, onComplete);
         }
 
         public void EnableDragging(bool enable)
         {
-            if (hand == null)
+            if (handAnimator == null)
             {
                 return;
             }
 
-            hand.EnableDragging(enable);
+            handView.EnableDragging(enable);
         }
     }
 }
