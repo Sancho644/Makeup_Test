@@ -2404,7 +2404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993240901742035988}
-  - component: {fileID: 5413215933617381470}
+  - component: {fileID: 1026995582636429720}
   - component: {fileID: 4629520249420855298}
   - component: {fileID: 3724307777758842356}
   m_Layer: 5
@@ -2438,7 +2438,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -787}
   m_SizeDelta: {x: 1821, y: 3631}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5413215933617381470
+--- !u!114 &1026995582636429720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2447,10 +2447,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3643627898891044219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 374d87da7f8c4682bf78e4ff06356668, type: 3}
+  m_Script: {fileID: 11500000, guid: 24c070254ae9a6441a5f7418f61ead46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acne: {fileID: 2037560391052026707}
+  slots:
+  - Type: 0
+    Item: {fileID: 2037560391052026707}
 --- !u!222 &4629520249420855298
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2613,7 +2615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphics: {fileID: 1153184506929153538}
+  type: 0
 --- !u!1 &3997833712910788241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,6 +2891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8769909785969587763}
+  - component: {fileID: 5095733030772876999}
   m_Layer: 5
   m_Name: FaceZone
   m_TagString: Untagged
@@ -2915,6 +2918,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1317}
   m_SizeDelta: {x: 340, y: 425}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5095733030772876999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4528201195798055396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03be31b9da899034c88b876b9d46e23b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceZone: {fileID: 8769909785969587763}
 --- !u!1 &4629613368263034969
 GameObject:
   m_ObjectHideFlags: 0
@@ -4019,16 +4035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   makeupHand: {fileID: 3373882429120491509}
-  faceMakeupController: {fileID: 5413215933617381470}
-  faceZone: {fileID: 8769909785969587763}
-  steps:
-  - Type: 0
-    TapHandler: {fileID: 1345983931905183711}
-    ItemRoot: {fileID: 2957844201213948846}
-    ItemDefaultPosition: {fileID: 2299011801870186049}
-    MakeupPosition: {fileID: 5212180975395674185}
-    ItemGraphics: {fileID: 1153184506929153538}
-    ResultAlpha: 0
 --- !u!1 &6304105191016283178
 GameObject:
   m_ObjectHideFlags: 0
