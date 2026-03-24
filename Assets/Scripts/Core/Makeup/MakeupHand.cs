@@ -2,7 +2,7 @@
 using UI.Animations;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Core.Makeup
 {
     public class MakeupHand : MonoBehaviour
     {

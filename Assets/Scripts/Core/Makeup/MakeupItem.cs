@@ -1,7 +1,7 @@
 using UI.Animations;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Core.Makeup
 {
     public class MakeupItem : MonoBehaviour
     {
