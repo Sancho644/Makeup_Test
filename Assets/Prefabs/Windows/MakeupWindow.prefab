@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 6897716595464302995}
   - component: {fileID: 7782498636129466334}
   - component: {fileID: 4339836779316361075}
+  - component: {fileID: 1294617092117240957}
+  - component: {fileID: 8279125903831763390}
+  - component: {fileID: 4163395469725955035}
   m_Layer: 5
   m_Name: EyesShadow (7)
   m_TagString: Untagged
@@ -75,6 +78,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1294617092117240957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29461689892043049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &8279125903831763390
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29461689892043049}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4163395469725955035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29461689892043049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &336320300133772208
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +131,9 @@ GameObject:
   - component: {fileID: 4967173626922607824}
   - component: {fileID: 6943906293790975531}
   - component: {fileID: 7516491702353987356}
+  - component: {fileID: 3287124976480559680}
+  - component: {fileID: 5446472210251864301}
+  - component: {fileID: 139953449234138575}
   m_Layer: 5
   m_Name: EyesShadow
   m_TagString: Untagged
@@ -150,6 +198,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3287124976480559680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336320300133772208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &5446472210251864301
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336320300133772208}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &139953449234138575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336320300133772208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &351000801024494184
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5626238657320353487}
   - component: {fileID: 3373882429120491509}
+  - component: {fileID: 7819596994752493020}
   - component: {fileID: 4851756008410645660}
   - component: {fileID: 7918589334665867995}
   - component: {fileID: 4165032774311100718}
@@ -307,7 +398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a975cb40ae4618a79ba92580d881c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handRoot: {fileID: 5626238657320353487}
   handDefaultAnchored: {fileID: 6982803445845681521}
   itemPosition: {fileID: 6006439727464671929}
   canvasGroup: {fileID: 4851756008410645660}
@@ -315,6 +405,19 @@ MonoBehaviour:
   moveTween: {fileID: 4165032774311100718}
   fadeTween: {fileID: 7247133400020013499}
   makeupTween: {fileID: 7951650415988585689}
+--- !u!114 &7819596994752493020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436199292687222604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc6ee29fc4847c08d8fb428708ca5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handRoot: {fileID: 5626238657320353487}
 --- !u!225 &4851756008410645660
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -475,6 +578,9 @@ GameObject:
   - component: {fileID: 1753957267971200753}
   - component: {fileID: 3529669596765091377}
   - component: {fileID: 4300412238726229887}
+  - component: {fileID: 315079710369196380}
+  - component: {fileID: 5098719339420239894}
+  - component: {fileID: 2246462255655942004}
   m_Layer: 5
   m_Name: EyesShadow (4)
   m_TagString: Untagged
@@ -539,6 +645,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &315079710369196380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541111182631319690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &5098719339420239894
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541111182631319690}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2246462255655942004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541111182631319690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &599510013031933966
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +773,7 @@ GameObject:
   - component: {fileID: 8985809545549485445}
   - component: {fileID: 7090071353927731234}
   - component: {fileID: 4607414475195097035}
+  - component: {fileID: 2824744122607303752}
   m_Layer: 5
   m_Name: BlushColor
   m_TagString: Untagged
@@ -689,6 +838,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2824744122607303752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782137002812860092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 1
 --- !u!1 &1088646771218819264
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +974,7 @@ GameObject:
   - component: {fileID: 80602924038819137}
   - component: {fileID: 6521460218003544210}
   - component: {fileID: 7873331776788095589}
+  - component: {fileID: 8832959410386142350}
   m_Layer: 5
   m_Name: BlushColor (1)
   m_TagString: Untagged
@@ -875,6 +1039,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8832959410386142350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417733514539802449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 2
 --- !u!1 &1688469871686273488
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +1064,7 @@ GameObject:
   - component: {fileID: 8318289085075134232}
   - component: {fileID: 2618364055515955375}
   - component: {fileID: 3301194001315209601}
+  - component: {fileID: 6342374698805170267}
   m_Layer: 5
   m_Name: BlushColor (2)
   m_TagString: Untagged
@@ -950,6 +1129,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6342374698805170267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688469871686273488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 3
 --- !u!1 &1794910999362563207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1446,9 @@ GameObject:
   - component: {fileID: 5164066811311972201}
   - component: {fileID: 3912413367831081799}
   - component: {fileID: 4047290113379370385}
+  - component: {fileID: 2006264876493671718}
+  - component: {fileID: 2569697018674749745}
+  - component: {fileID: 631951046557923368}
   m_Layer: 5
   m_Name: EyesShadow (1)
   m_TagString: Untagged
@@ -1317,6 +1513,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2006264876493671718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163024101608346848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &2569697018674749745
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163024101608346848}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &631951046557923368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163024101608346848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &2186411964815012403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,6 +1969,7 @@ GameObject:
   - component: {fileID: 6921123425737262209}
   - component: {fileID: 1711833548443257110}
   - component: {fileID: 8047023531270800508}
+  - component: {fileID: 777925982047148875}
   m_Layer: 5
   m_Name: BlushColor (8)
   m_TagString: Untagged
@@ -1795,6 +2034,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &777925982047148875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2307615666974119417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 9
 --- !u!1 &2328410557835251462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,6 +2136,7 @@ GameObject:
   - component: {fileID: 9195925410095795321}
   - component: {fileID: 1333514489730654697}
   - component: {fileID: 8917962357361828038}
+  - component: {fileID: 5732319968927592259}
   m_Layer: 5
   m_Name: BlushColor (7)
   m_TagString: Untagged
@@ -1947,6 +2201,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5732319968927592259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495318088459336913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 8
 --- !u!1 &2651466310321434053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,6 +2245,7 @@ RectTransform:
   m_Children:
   - {fileID: 3236848766049552643}
   - {fileID: 5055440355118341226}
+  - {fileID: 4632634644544320974}
   m_Father: {fileID: 3971830838407034608}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2331,6 +2600,7 @@ GameObject:
   - component: {fileID: 3477827235702538705}
   - component: {fileID: 3063569080256094577}
   - component: {fileID: 8695679574698324045}
+  - component: {fileID: 4013550029706078960}
   m_Layer: 5
   m_Name: BlushColor (3)
   m_TagString: Untagged
@@ -2395,6 +2665,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4013550029706078960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578882794520869650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 4
 --- !u!1 &3643627898891044219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,8 +2735,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - Type: 0
+  - Style:
+      Type: 0
+      Color: 0
     Item: {fileID: 2037560391052026707}
+  - Style:
+      Type: 2
+      Color: 1
+    Item: {fileID: 3287124976480559680}
+  - Style:
+      Type: 2
+      Color: 2
+    Item: {fileID: 2006264876493671718}
+  - Style:
+      Type: 2
+      Color: 3
+    Item: {fileID: 6074092317384624172}
+  - Style:
+      Type: 2
+      Color: 4
+    Item: {fileID: 8694446612690929071}
+  - Style:
+      Type: 2
+      Color: 5
+    Item: {fileID: 315079710369196380}
+  - Style:
+      Type: 2
+      Color: 6
+    Item: {fileID: 8927112045994490933}
+  - Style:
+      Type: 2
+      Color: 7
+    Item: {fileID: 6640019913962218495}
+  - Style:
+      Type: 2
+      Color: 8
+    Item: {fileID: 1294617092117240957}
+  - Style:
+      Type: 2
+      Color: 9
+    Item: {fileID: 1294617092117240957}
 --- !u!222 &4629520249420855298
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2502,6 +2824,9 @@ GameObject:
   - component: {fileID: 5916551946721952383}
   - component: {fileID: 5411551439890917301}
   - component: {fileID: 7377420272298081263}
+  - component: {fileID: 8694446612690929071}
+  - component: {fileID: 5053351053771589982}
+  - component: {fileID: 7400377343315872570}
   m_Layer: 5
   m_Name: EyesShadow (3)
   m_TagString: Untagged
@@ -2566,6 +2891,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8694446612690929071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652915011261379790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &5053351053771589982
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652915011261379790}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &7400377343315872570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652915011261379790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &3838598384022036937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,6 +2983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  color: 0
 --- !u!1 &3997833712910788241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,6 +3299,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceZone: {fileID: 8769909785969587763}
+--- !u!1 &4625916222502955146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4632634644544320974}
+  m_Layer: 5
+  m_Name: EyeBrushDefaultPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4632634644544320974
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625916222502955146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 536494649640283271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 209, y: 50}
+  m_SizeDelta: {x: 188, y: 398}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4629613368263034969
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,6 +3495,9 @@ GameObject:
   - component: {fileID: 3233062533384763385}
   - component: {fileID: 5669761721063168355}
   - component: {fileID: 4375783230510691835}
+  - component: {fileID: 4265455356702154382}
+  - component: {fileID: 2185703947317197997}
+  - component: {fileID: 8964821182336605880}
   m_Layer: 5
   m_Name: EyesShadow (8)
   m_TagString: Untagged
@@ -3156,6 +3562,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4265455356702154382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5031230186761081297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &2185703947317197997
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5031230186761081297}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &8964821182336605880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5031230186761081297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &5056200038438466501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,6 +3615,7 @@ GameObject:
   - component: {fileID: 3476606099578336200}
   - component: {fileID: 8808845521414419469}
   - component: {fileID: 5967467427526377827}
+  - component: {fileID: 7296436589161285251}
   m_Layer: 5
   m_Name: BlushColor (6)
   m_TagString: Untagged
@@ -3231,6 +3680,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7296436589161285251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056200038438466501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 7
 --- !u!1 &5269394858526575984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,6 +3974,9 @@ GameObject:
   - component: {fileID: 8238079376585415517}
   - component: {fileID: 6045973421690879495}
   - component: {fileID: 2821427613889662077}
+  - component: {fileID: 6074092317384624172}
+  - component: {fileID: 4540071328636369900}
+  - component: {fileID: 7335041208398820118}
   m_Layer: 5
   m_Name: EyesShadow (2)
   m_TagString: Untagged
@@ -3575,6 +4041,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6074092317384624172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563295779213331299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &4540071328636369900
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563295779213331299}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &7335041208398820118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563295779213331299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &5788111109548316264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,7 +4245,7 @@ GameObject:
   - component: {fileID: 7275025542166007713}
   - component: {fileID: 1646492481663727885}
   m_Layer: 5
-  m_Name: BlushBrush
+  m_Name: EyeBrush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3790,7 +4298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a33403798f94a96468b7800358f73214, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d6d29a7d50d0f74fa114a0e73cd3869, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4034,7 +4542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c402327caa4640a612c1d55d131928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  makeupHand: {fileID: 3373882429120491509}
+  handAnimator: {fileID: 3373882429120491509}
+  handView: {fileID: 7819596994752493020}
 --- !u!1 &6304105191016283178
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,6 +4630,7 @@ GameObject:
   - component: {fileID: 6291838083212581593}
   - component: {fileID: 2385457584034465042}
   - component: {fileID: 7847346673830219950}
+  - component: {fileID: 4448231655610426171}
   m_Layer: 5
   m_Name: BlushColor (4)
   m_TagString: Untagged
@@ -4185,6 +4695,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4448231655610426171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335186982372309531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 5
 --- !u!1 &6405835239287135120
 GameObject:
   m_ObjectHideFlags: 0
@@ -4964,6 +5488,9 @@ GameObject:
   - component: {fileID: 6246884358216222343}
   - component: {fileID: 7760203001903130697}
   - component: {fileID: 870900034526931404}
+  - component: {fileID: 8927112045994490933}
+  - component: {fileID: 6125201610951760302}
+  - component: {fileID: 1162084513344400464}
   m_Layer: 5
   m_Name: EyesShadow (5)
   m_TagString: Untagged
@@ -5028,6 +5555,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8927112045994490933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651261260776133278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &6125201610951760302
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651261260776133278}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1162084513344400464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651261260776133278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &7793728247452828448
 GameObject:
   m_ObjectHideFlags: 0
@@ -5183,6 +5752,9 @@ GameObject:
   - component: {fileID: 5331848409326359323}
   - component: {fileID: 7942966164089939209}
   - component: {fileID: 4394241475933113880}
+  - component: {fileID: 6640019913962218495}
+  - component: {fileID: 4803399993380222179}
+  - component: {fileID: 5725873797171390252}
   m_Layer: 5
   m_Name: EyesShadow (6)
   m_TagString: Untagged
@@ -5247,6 +5819,48 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6640019913962218495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021317585154821636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34703adea843f0b369f872860b658a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  canvasGroup: {fileID: 8279125903831763390}
+  fadeTween: {fileID: 4163395469725955035}
+--- !u!225 &4803399993380222179
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021317585154821636}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5725873797171390252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021317585154821636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 8279125903831763390}
+  duration: 0.5
 --- !u!1 &9032842480880732812
 GameObject:
   m_ObjectHideFlags: 0
@@ -5258,6 +5872,7 @@ GameObject:
   - component: {fileID: 1136348582874858869}
   - component: {fileID: 5939062528275466508}
   - component: {fileID: 1129126006196795251}
+  - component: {fileID: 6894997491813873311}
   m_Layer: 5
   m_Name: BlushColor (5)
   m_TagString: Untagged
@@ -5322,6 +5937,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6894997491813873311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032842480880732812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f7d1413f940342bd4b43633122d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  color: 6
 --- !u!1 &9085458652768492284
 GameObject:
   m_ObjectHideFlags: 0
