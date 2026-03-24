@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: MakeupStepStaticSettings
   m_EditorClassIdentifier: 
   steps:
-  - Type: 0
-    ItemGraphics: {fileID: 0}
+  - Style:
+      Type: 0
+      Color: 0
     ResultAlpha: 0
+  - Style:
+      Type: 2
+      Color: 1
+    ResultAlpha: 1
