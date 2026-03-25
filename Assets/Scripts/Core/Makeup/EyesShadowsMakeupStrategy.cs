@@ -29,18 +29,22 @@ namespace Core.Makeup
                 HandView.MoveTo(Step.ItemDefaultPosition, () =>
                 {
                     var itemPosition = HandView.GetHandItemPosition();
-                    Step.ItemRoot.SetParent(itemPosition, false);
-                    Step.ItemRoot.anchoredPosition = Vector2.zero;
-                    Step.ItemRoot.localScale = Vector3.one;
-                    Step.ItemRoot.localRotation = Quaternion.identity;
-                    HandView.MoveTo(Step.ColorPalettePosition,
-                        () =>
-                        {
-                            HandView.PlayMakeup(() =>
+                    Step.ItemRoot.SetParent(itemPosition, true);
+                    Step.MakeupApplicatorAnimator.PlayJumpAnimation(itemPosition, () =>
+                    {
+                        Step.ItemRoot.anchoredPosition = Vector2.zero;
+                        Step.ItemRoot.localScale = Vector3.one;
+                        Step.ItemRoot.localRotation = Quaternion.identity;
+                        HandView.MoveTo(Step.ColorPalettePosition,
+                            () =>
                             {
-                                HandView.MoveTo(Step.PrepareMakeupPosition, () => { HandView.EnableDragging(true); });
+                                HandView.PlayMakeup(() =>
+                                {
+                                    HandView.MoveTo(Step.PrepareMakeupPosition,
+                                        () => { HandView.EnableDragging(true); });
+                                });
                             });
-                        });
+                    });
                 });
             });
         }
@@ -54,17 +58,20 @@ namespace Core.Makeup
 
             HandView.EnableDragging(false);
 
-            HandView.PlayMakeup(() =>
+            HandView.MoveTo(Step.MakeupPosition, () =>
             {
-                HandView.ReturnTo(Step.ItemDefaultPosition, () =>
+                HandView.PlayMakeup(() =>
                 {
-                    Step.ItemRoot.transform.SetParent(Step.ItemDefaultPosition);
-                    Step.ItemRoot.position = Step.ItemDefaultPosition.position;
-                    End();
+                    HandView.MoveTo(Step.ItemDefaultPosition, () =>
+                    {
+                        Step.ItemRoot.transform.SetParent(Step.ItemDefaultPosition, false);
+                        Step.ItemRoot.anchoredPosition = Vector2.zero;
+                        HandView.ReturnTo(End);
+                    });
                 });
-            });
 
-            ResultRenderer?.ApplyMakeup(Step.Style, Step.ResultAlpha);
+                ResultRenderer?.ApplyMakeup(Step.Style, Step.ResultAlpha);
+            });
         }
     }
 }

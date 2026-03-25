@@ -16,7 +16,7 @@ namespace Core.Makeup
         [SerializeField] private MakeupTween makeupTween;
 
         public RectTransform ItemPosition => itemPosition;
-        
+
         private void Start()
         {
             canvasGroup.alpha = 0;
@@ -40,17 +40,12 @@ namespace Core.Makeup
             makeupTween.Play();
         }
 
-        public void PlayFinishMakeupAnimation(RectTransform itemDefaultPosition, Action onComplete)
+        public void PlayFinishMakeupAnimation(Action onComplete)
         {
-            moveTween.Setup(itemDefaultPosition, () =>
+            moveTween.Setup(handDefaultPosition, () =>
             {
-                onComplete?.Invoke();
-                moveTween.Setup(handDefaultPosition, () =>
-                {
-                    fadeTween.Setup(0f, () => { });
-                    fadeTween.Play();
-                });
-                moveTween.Play();
+                fadeTween.Setup(0f, () => { onComplete?.Invoke(); });
+                fadeTween.Play();
             });
             moveTween.Play();
         }

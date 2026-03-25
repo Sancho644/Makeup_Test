@@ -7,8 +7,6 @@ namespace Core.Makeup
 {
     public class MakeupStateMachine : MonoBehaviour
     {
-        [SerializeField] private HandView handView;
-
         [Inject] private readonly IGameEventsDispatcher _gameEventsDispatcher;
         [Inject] private readonly IMakeupFlowService _makeupFlowService;
 

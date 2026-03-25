@@ -7,7 +7,8 @@ namespace Core.Makeup
         public override MakeupStepRuntime Step { get; protected set; }
 
         public CreamMakeupStrategy(IMakeupStepProvider stepProvider, IMakeupHandView handView,
-            IMakeupResultRenderer resultRenderer, IGameEventsDispatcher gameEventsDispatcher) : base(stepProvider, handView,
+            IMakeupResultRenderer resultRenderer, IGameEventsDispatcher gameEventsDispatcher) : base(stepProvider,
+            handView,
             resultRenderer, gameEventsDispatcher)
         {
         }
@@ -19,7 +20,7 @@ namespace Core.Makeup
                 End();
                 return;
             }
-            
+
             Step = step;
 
             HandView.ShowHand(() =>
@@ -44,17 +45,20 @@ namespace Core.Makeup
 
             HandView.EnableDragging(false);
 
-            HandView.PlayApply(() =>
+            HandView.MoveTo(Step.MakeupPosition, () =>
             {
-                HandView.ReturnTo(Step.ItemDefaultPosition, () =>
+                HandView.PlayMakeup(() =>
                 {
-                    Step.ItemRoot.transform.SetParent(Step.ItemDefaultPosition);
-                    Step.ItemRoot.position = Step.ItemDefaultPosition.position;
-                    End();
+                    HandView.MoveTo(Step.ItemDefaultPosition, () =>
+                    {
+                        Step.ItemRoot.transform.SetParent(Step.ItemDefaultPosition);
+                        Step.ItemRoot.position = Step.ItemDefaultPosition.position;
+                        HandView.ReturnTo(End);
+                    });
                 });
-            });
 
-            ResultRenderer?.ApplyMakeup(Step.Style, Step.ResultAlpha);
+                ResultRenderer?.ApplyMakeup(Step.Style, Step.ResultAlpha);
+            });
         }
     }
 }

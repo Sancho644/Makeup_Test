@@ -1,95 +1,60 @@
 ﻿using Core.Makeup.Events;
 using GameEvents;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 namespace Core.Makeup
 {
-    public class HandView : MonoBehaviour
+    public class HandView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private RectTransform handRoot;
-        
+
         [Inject] private readonly IGameEventsDispatcher _gameEventsDispatcher;
-        
+
         private bool _isDragging;
         private RectTransform _handParent;
+        private Vector2 _dragOffset;
 
         private void Start()
         {
             _handParent = handRoot != null ? handRoot.parent as RectTransform : null;
         }
-        
-        private void Update()
-        {
-            if (_isDragging && GetPointerHeld())
-            {
-                FollowPointer();
-            }
 
-            if (_isDragging && GetPointerUp())
-            {
-                HandlePointerRelease();
-            }
-        }
-        
         public void EnableDragging(bool enable)
         {
             _isDragging = enable;
         }
-        
-        private bool GetPointerHeld()
-        {
-            if (Input.touchCount > 0)
-            {
-                var phase = Input.GetTouch(0).phase;
-                return phase == TouchPhase.Moved || phase == TouchPhase.Stationary;
-            }
 
-            return Input.GetMouseButton(0);
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(_handParent, eventData.position,
+                eventData.pressEventCamera, out var localPoint);
+
+            _dragOffset = handRoot.anchoredPosition - localPoint;
         }
 
-        private void FollowPointer()
+        public void OnDrag(PointerEventData eventData)
         {
-            if (handRoot == null || _handParent == null)
+            if (!_isDragging)
             {
                 return;
             }
 
-            var screenPos = GetPointerPosition();
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                _handParent,
-                screenPos,
-                null,
-                out Vector2 localPoint
-            );
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(_handParent, eventData.position,
+                eventData.pressEventCamera, out var localPoint);
 
-            handRoot.localPosition = localPoint;
+            handRoot.anchoredPosition = localPoint + _dragOffset;
         }
-        
-        private bool GetPointerUp()
+
+        public void OnEndDrag(PointerEventData eventData)
         {
-            if (Input.touchCount > 0)
+            if (!_isDragging)
             {
-                return Input.GetTouch(0).phase == TouchPhase.Ended
-                       || Input.GetTouch(0).phase == TouchPhase.Canceled;
+                return;
             }
 
-            return Input.GetMouseButtonUp(0);
-        }
-
-        private void HandlePointerRelease()
-        {
-            _gameEventsDispatcher.Dispatch(new HandlePointerReleaseEvent(GetPointerPosition()));
-        }
-        
-        private Vector2 GetPointerPosition()
-        {
-            if (Input.touchCount > 0)
-            {
-                return Input.GetTouch(0).position;
-            }
-
-            return Input.mousePosition;
+            _gameEventsDispatcher.Dispatch(new HandlePointerReleaseEvent(eventData.position));
         }
     }
 }

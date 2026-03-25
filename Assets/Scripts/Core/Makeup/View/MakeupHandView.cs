@@ -24,19 +24,14 @@ namespace Core.Makeup.View
             handAnimator.MoveHand(target, onComplete);
         }
 
-        public void PlayApply(Action onComplete)
-        {
-            handAnimator.PlayMakeupAnimation(onComplete);
-        }
-
         public void PlayMakeup(Action onComplete)
         {
             handAnimator.PlayMakeupAnimation(onComplete);
         }
 
-        public void ReturnTo(RectTransform itemDefaultPosition, Action onComplete)
+        public void ReturnTo(Action onComplete)
         {
-            handAnimator.PlayFinishMakeupAnimation(itemDefaultPosition, onComplete);
+            handAnimator.PlayFinishMakeupAnimation(onComplete);
         }
 
         public void EnableDragging(bool enable)

@@ -58,11 +58,11 @@ namespace Core.Makeup
                 return;
             }
 
-            _hasStep = true;
             _currentStyle = style;
-            
+
             if (_makeupStrategies.TryGetValue(_currentStyle.Type, out var strategy))
             {
+                _hasStep = true;
                 strategy.Start(style);
             }
         }
