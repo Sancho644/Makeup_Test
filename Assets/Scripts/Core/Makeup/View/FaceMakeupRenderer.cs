@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,26 +5,19 @@ namespace Core.Makeup.View
 {
     public class FaceMakeupRenderer : MonoBehaviour, IMakeupResultRenderer
     {
-        [Serializable]
-        private class Slot
-        {
-            public MakeupStyle Style;
-            public MakeupItem Item;
-        }
+        [SerializeField] private List<MakeupSlot> slots;
 
-        [SerializeField] private List<Slot> slots;
-
-        private Dictionary<MakeupStyle, MakeupItem> _map;
+        private Dictionary<MakeupStyle, MakeupItemAnimator> _map;
 
         private void Awake()
         {
-            _map = new Dictionary<MakeupStyle, MakeupItem>();
+            _map = new Dictionary<MakeupStyle, MakeupItemAnimator>();
 
             foreach (var slot in slots)
             {
-                if (slot != null && slot.Item != null)
+                if (slot != null && slot.ItemAnimator != null)
                 {
-                    _map[slot.Style] = slot.Item;
+                    _map[slot.Style] = slot.ItemAnimator;
                 }
             }
         }
@@ -37,6 +29,14 @@ namespace Core.Makeup.View
                 return;
             }
 
+            foreach (var makeup in _map)
+            {
+                if (makeup.Key.Type == style.Type && makeup.Key.Color != style.Color)
+                {
+                    makeup.Value.SetAlpha(0);
+                }
+            }
+            
             if (_map.TryGetValue(style, out var item))
             {
                 item.PlayMakeupAnimation(alpha);

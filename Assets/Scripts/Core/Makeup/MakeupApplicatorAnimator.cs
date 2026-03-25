@@ -1,0 +1,19 @@
+﻿using System;
+using UI.Animations;
+using UnityEngine;
+
+namespace Core.Makeup
+{
+    [RequireComponent(typeof(JumpTween))]
+    public class MakeupApplicatorAnimator : MonoBehaviour
+    {
+        [SerializeField] private MakeupStyle style;
+        [SerializeField] private JumpTween jumpTween;
+
+        public void PlayJumpAnimation(RectTransform position, Action onComplete)
+        {
+            jumpTween.Setup(position, onComplete);
+            jumpTween.Play();
+        }
+    }
+}

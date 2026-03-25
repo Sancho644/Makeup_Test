@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Core.Makeup
 {
-    public class MakeupItem : MonoBehaviour
+    [RequireComponent(typeof(CanvasGroup), typeof(FadeTween))]
+    public class MakeupItemAnimator : MonoBehaviour
     {
         [SerializeField] private bool enableOnStart;
         [SerializeField] private CanvasGroup canvasGroup;
@@ -13,14 +14,19 @@ namespace Core.Makeup
         {
             if (!enableOnStart)
             {
-                canvasGroup.alpha = 0;
+                SetAlpha(0);
             }
         }
 
         public void PlayMakeupAnimation(float alphaValue)
         {
-            fadeTween.Setup(alphaValue, () => {});
+            fadeTween.Setup(alphaValue, () => { });
             fadeTween.Play();
+        }
+        
+        public void SetAlpha(float alphaValue)
+        {
+            canvasGroup.alpha = alphaValue;
         }
     }
 }

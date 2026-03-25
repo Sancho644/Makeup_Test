@@ -5,13 +5,12 @@ namespace Core.Makeup
 {
     public interface IMakeupHandView
     {
-        void ShowHand(Action onComplete);
-        void PickUp(RectTransform itemRoot, Action onComplete);
-        void MoveTo(RectTransform target, Action onComplete);
-        void PlayApply(Action onComplete);
-        void PlayPickColor(Action onComplete);
-        void ReturnTo(RectTransform itemDefaultPosition, Action onComplete);
-        void EnableDragging(bool enable);
-        void SetItemGraphics(GameObject graphics);
+        public void ShowHand(Action onComplete);
+        public void MoveTo(RectTransform target, Action onComplete);
+        public void PlayApply(Action onComplete);
+        public void PlayMakeup(Action onComplete);
+        public void ReturnTo(RectTransform itemDefaultPosition, Action onComplete);
+        public void EnableDragging(bool enable);
+        public RectTransform GetHandItemPosition();
     }
 }

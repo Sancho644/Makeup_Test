@@ -13,9 +13,10 @@ namespace Core.Makeup
             public MakeupStyle Style;
             public RectTransform ItemRoot;
             public RectTransform ItemDefaultPosition;
+            public RectTransform PrepareMakeupPosition;
             public RectTransform MakeupPosition;
             public RectTransform ColorPalettePosition;
-            public GameObject ItemGraphics;
+            public MakeupApplicatorAnimator MakeupApplicatorAnimator;
         }
 
         [SerializeField] private List<SceneStep> steps;

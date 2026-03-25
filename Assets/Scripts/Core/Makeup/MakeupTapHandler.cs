@@ -8,14 +8,13 @@ namespace Core.Makeup
 {
     public class MakeupTapHandler : MonoBehaviour, IPointerDownHandler
     {
-        [SerializeField] private MakeupType type;
-        [SerializeField] private ColorType color;
+        [SerializeField] private MakeupStyle style;
 
         [Inject] private readonly IGameEventsDispatcher _gameEventsDispatcher;
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            _gameEventsDispatcher.Dispatch(new TapMakeupHandlerEvent(type, color));
+            _gameEventsDispatcher.Dispatch(new TapMakeupHandlerEvent(style));
         }
     }
 }

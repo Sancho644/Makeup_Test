@@ -38,9 +38,10 @@ namespace Core.Makeup
                 style,
                 sceneStep.ItemRoot,
                 sceneStep.ItemDefaultPosition,
+                sceneStep.PrepareMakeupPosition,
                 sceneStep.MakeupPosition,
                 sceneStep.ColorPalettePosition,
-                sceneStep.ItemGraphics,
+                sceneStep.MakeupApplicatorAnimator,
                 staticStep.ResultAlpha);
 
             return true;

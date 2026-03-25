@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Core.Makeup.View
 {
+    [RequireComponent(typeof(HandAnimator), typeof(HandView))]
     public class MakeupHandView : MonoBehaviour, IMakeupHandView
     {
         [SerializeField] private HandAnimator handAnimator;
@@ -10,88 +11,36 @@ namespace Core.Makeup.View
 
         public void ShowHand(Action onComplete)
         {
-            if (handAnimator == null)
-            {
-                onComplete?.Invoke();
-                return;
-            }
-
             handAnimator.PlayEntranceHandAnimation(onComplete);
         }
 
-        public void PickUp(RectTransform itemRoot, Action onComplete)
+        public RectTransform GetHandItemPosition()
         {
-            if (handAnimator == null)
-            {
-                onComplete?.Invoke();
-                return;
-            }
-
-            handAnimator.PlayPickupAnimation(itemRoot, onComplete);
-        }
-        
-        public void SetItemGraphics(GameObject graphics)
-        {
-            if (handAnimator == null)
-            {
-                return;
-            }
-
-            handAnimator.SetItemGraphics(graphics);
+            return handAnimator.ItemPosition;
         }
 
         public void MoveTo(RectTransform target, Action onComplete)
         {
-            if (handAnimator == null)
-            {
-                onComplete?.Invoke();
-                return;
-            }
-
             handAnimator.MoveHand(target, onComplete);
         }
 
         public void PlayApply(Action onComplete)
         {
-            if (handAnimator == null)
-            {
-                onComplete?.Invoke();
-                return;
-            }
-
             handAnimator.PlayMakeupAnimation(onComplete);
         }
 
-        public void PlayPickColor(Action onComplete)
+        public void PlayMakeup(Action onComplete)
         {
-            if (handAnimator == null)
-            {
-                onComplete?.Invoke();
-                return;
-            }
-
-            handAnimator.PlayPickColorAnimation(onComplete);
-            
+            handAnimator.PlayMakeupAnimation(onComplete);
         }
 
         public void ReturnTo(RectTransform itemDefaultPosition, Action onComplete)
         {
-            if (handAnimator == null)
-            {
-                onComplete?.Invoke();
-                return;
-            }
-
             handAnimator.PlayFinishMakeupAnimation(itemDefaultPosition, onComplete);
         }
 
         public void EnableDragging(bool enable)
         {
-            if (handAnimator == null)
-            {
-                return;
-            }
-
             handView.EnableDragging(enable);
         }
     }

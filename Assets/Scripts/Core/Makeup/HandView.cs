@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Core.Makeup.Events;
+using GameEvents;
 using UnityEngine;
+using Zenject;
 
 namespace Core.Makeup
 {
@@ -7,10 +9,10 @@ namespace Core.Makeup
     {
         [SerializeField] private RectTransform handRoot;
         
+        [Inject] private readonly IGameEventsDispatcher _gameEventsDispatcher;
+        
         private bool _isDragging;
         private RectTransform _handParent;
-        
-        public event Action<Vector2> OnHandRelease;
 
         private void Start()
         {
@@ -61,7 +63,7 @@ namespace Core.Makeup
                 out Vector2 localPoint
             );
 
-            handRoot.anchoredPosition = localPoint;
+            handRoot.localPosition = localPoint;
         }
         
         private bool GetPointerUp()
@@ -77,7 +79,7 @@ namespace Core.Makeup
 
         private void HandlePointerRelease()
         {
-            OnHandRelease?.Invoke(GetPointerPosition());
+            _gameEventsDispatcher.Dispatch(new HandlePointerReleaseEvent(GetPointerPosition()));
         }
         
         private Vector2 GetPointerPosition()

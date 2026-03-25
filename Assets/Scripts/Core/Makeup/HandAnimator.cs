@@ -6,16 +6,17 @@ namespace Core.Makeup
 {
     public class HandAnimator : MonoBehaviour
     {
-        [SerializeField] private RectTransform handDefaultAnchored;
+        [SerializeField] private RectTransform handDefaultPosition;
         [SerializeField] private RectTransform itemPosition;
         [SerializeField] private CanvasGroup canvasGroup;
 
         [Header("Animations")] 
-        [SerializeField] private JumpTween jumpTween;
         [SerializeField] private MoveTween moveTween;
         [SerializeField] private FadeTween fadeTween;
         [SerializeField] private MakeupTween makeupTween;
 
+        public RectTransform ItemPosition => itemPosition;
+        
         private void Start()
         {
             canvasGroup.alpha = 0;
@@ -39,19 +40,12 @@ namespace Core.Makeup
             makeupTween.Play();
         }
 
-        public void PlayPickupAnimation(RectTransform itemRect, Action onComplete)
-        {
-            jumpTween.Setup(itemRect, onComplete);
-            jumpTween.Play();
-        }
-
         public void PlayFinishMakeupAnimation(RectTransform itemDefaultPosition, Action onComplete)
         {
             moveTween.Setup(itemDefaultPosition, () =>
             {
-                RemoveItemGraphics();
                 onComplete?.Invoke();
-                moveTween.Setup(handDefaultAnchored, () =>
+                moveTween.Setup(handDefaultPosition, () =>
                 {
                     fadeTween.Setup(0f, () => { });
                     fadeTween.Play();
@@ -59,24 +53,6 @@ namespace Core.Makeup
                 moveTween.Play();
             });
             moveTween.Play();
-        }
-
-        public void PlayPickColorAnimation(Action onComplete)
-        {
-            
-        }
-
-        public void SetItemGraphics(GameObject graphics)
-        {
-            Instantiate(graphics, itemPosition);
-        }
-
-        private void RemoveItemGraphics()
-        {
-            foreach (Transform child in itemPosition.transform)
-            {
-                Destroy(child.gameObject);
-            }
         }
     }
 }
