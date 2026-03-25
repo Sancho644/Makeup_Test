@@ -23,7 +23,7 @@ namespace UI
 
         private void OnDestroy()
         {
-            toggle.onValueChanged.AddListener(OnToggleValueChanged);
+            toggle.onValueChanged.RemoveListener(OnToggleValueChanged);
         }
 
         private void OnToggleValueChanged(bool value)
