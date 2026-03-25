@@ -16,64 +16,80 @@ MonoBehaviour:
   - Style:
       Type: 0
       Color: 0
+    BrushColorSprite: {fileID: 0}
     ResultAlpha: 0
   - Style:
       Type: 2
       Color: 1
+    BrushColorSprite: {fileID: -3686069764941116703, guid: 966c222e24ae3894ea5fca5e0e0906a9, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 2
       Color: 2
+    BrushColorSprite: {fileID: 7805305712604128872, guid: c206dc205cf715840a315e6b06fc3e65, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 2
       Color: 3
+    BrushColorSprite: {fileID: 3333394488239881753, guid: ea116d8f3adc21a4e83c4531293401b5, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 2
       Color: 4
+    BrushColorSprite: {fileID: 2699240234912042727, guid: 1ac5ef9ed8dc7cd44a778726ed9e1752, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 2
       Color: 5
+    BrushColorSprite: {fileID: 2205762380290395472, guid: 32bc1d4f3585e184db887eb98b2df466, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 2
       Color: 6
+    BrushColorSprite: {fileID: -5864295375140538674, guid: 778928a91461a204e900f770736ae770, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 2
       Color: 7
+    BrushColorSprite: {fileID: -1451926981127268908, guid: ef80a6590fc4bc24aa173ca35543b08f, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 2
       Color: 8
+    BrushColorSprite: {fileID: -7527857321378283846, guid: 40cd11f0586565441bde2b228786d04d, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 2
       Color: 9
+    BrushColorSprite: {fileID: 9114005264137437595, guid: a8f88d79120a4994ca6bf7c1f98f81d7, type: 3}
     ResultAlpha: 1
   - Style:
       Type: 1
       Color: 1
+    BrushColorSprite: {fileID: 0}
     ResultAlpha: 1
   - Style:
       Type: 1
       Color: 2
+    BrushColorSprite: {fileID: 0}
     ResultAlpha: 1
   - Style:
       Type: 1
       Color: 3
+    BrushColorSprite: {fileID: 0}
     ResultAlpha: 1
   - Style:
       Type: 1
       Color: 4
+    BrushColorSprite: {fileID: 0}
     ResultAlpha: 1
   - Style:
       Type: 1
       Color: 5
+    BrushColorSprite: {fileID: 0}
     ResultAlpha: 1
   - Style:
       Type: 1
       Color: 6
+    BrushColorSprite: {fileID: 0}
     ResultAlpha: 1
