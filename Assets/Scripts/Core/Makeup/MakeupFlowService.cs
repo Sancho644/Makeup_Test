@@ -1,121 +1,101 @@
+using System;
+using System.Collections.Generic;
+using Core.Makeup.Events;
+using GameEvents;
 using UnityEngine;
 
 namespace Core.Makeup
 {
-    public class MakeupFlowService : IMakeupFlowService
+    public class MakeupFlowService : IMakeupFlowService, IDisposable
     {
         private readonly IMakeupStepProvider _stepProvider;
         private readonly IMakeupHandView _handView;
         private readonly IMakeupResultRenderer _resultRenderer;
         private readonly IFaceZoneChecker _faceZoneChecker;
+        private readonly IGameEventsDispatcher _gameEventsDispatcher;
 
-        private MakeupState _state;
-        private MakeupStepRuntime _currentStep;
+        private MakeupStyle _currentStyle;
         private bool _hasStep;
 
-        public MakeupState CurrentState => _state;
+        private readonly Dictionary<MakeupType, AbstractMakeupStrategy> _makeupStrategies;
 
         public MakeupFlowService(
             IMakeupStepProvider stepProvider,
             IMakeupHandView handView,
             IMakeupResultRenderer resultRenderer,
-            IFaceZoneChecker faceZoneChecker)
+            IFaceZoneChecker faceZoneChecker,
+            IGameEventsDispatcher gameEventsDispatcher)
         {
             _stepProvider = stepProvider;
             _handView = handView;
             _resultRenderer = resultRenderer;
             _faceZoneChecker = faceZoneChecker;
-            _state = MakeupState.Idle;
+            _gameEventsDispatcher = gameEventsDispatcher;
+
+            _gameEventsDispatcher.AddListener<MakeupEndEvent>(OnMakeupEnd);
+
+            _makeupStrategies = new Dictionary<MakeupType, AbstractMakeupStrategy>()
+            {
+                {
+                    MakeupType.Cream,
+                    new CreamMakeupStrategy(_stepProvider, _handView, _resultRenderer, _gameEventsDispatcher)
+                },
+                {
+                    MakeupType.Eyeshadow,
+                    new EyesShadowsMakeupStrategy(_stepProvider, _handView, _resultRenderer, _gameEventsDispatcher)
+                },
+                {
+                    MakeupType.Lipstick,
+                    new LipstickMakeupStrategy(_stepProvider, _handView, _resultRenderer, _gameEventsDispatcher)
+                }
+            };
         }
 
         public void StartStep(MakeupStyle style)
         {
-            if (_state != MakeupState.Idle)
+            if (_hasStep)
             {
-                return;
-            }
-
-            if (_stepProvider == null || !_stepProvider.TryGetStep(style, out _currentStep))
-            {
-                _hasStep = false;
                 return;
             }
 
             _hasStep = true;
-            _state = MakeupState.Pickup;
-
-            if (_currentStep.Style.Type == MakeupType.Cream)
+            _currentStyle = style;
+            
+            if (_makeupStrategies.TryGetValue(_currentStyle.Type, out var strategy))
             {
-                _handView.ShowHand(() =>
-                {
-                    _handView.PickUp(_currentStep.ItemRoot, () =>
-                    {
-                        _handView.SetItemGraphics(_currentStep.ItemGraphics);
-                        _currentStep.ItemGraphics.SetActive(false);
-                        _handView.MoveTo(_currentStep.MakeupPosition, () =>
-                        {
-                            _handView.EnableDragging(true);
-                            _state = MakeupState.Control;
-                        });
-                    });
-                });
-            }
-
-            if (_currentStep.Style.Type == MakeupType.Eyeshadow)
-            {
-                _handView.ShowHand(() =>
-                {
-                    _handView.PickUp(_currentStep.ItemRoot, () =>
-                    {
-                        _handView.SetItemGraphics(_currentStep.ItemGraphics);
-                        _currentStep.ItemGraphics.SetActive(false);
-                        _handView.MoveTo(_currentStep.ColorPalettePosition,
-                            () =>
-                            {
-                                _handView.PlayPickColor(() =>
-                                {
-                                    _handView.MoveTo(_currentStep.MakeupPosition, () =>
-                                    {
-                                        _handView.EnableDragging(true);
-                                        _state = MakeupState.Control;
-                                    });
-                                });
-                            });
-                    });
-                });
+                strategy.Start(style);
             }
         }
 
         public void OnHandReleased(Vector2 screenPos)
         {
-            if (_state != MakeupState.Control || !_hasStep)
+            if (!_hasStep)
             {
                 return;
             }
 
             if (_faceZoneChecker != null && _faceZoneChecker.IsInFaceZone(screenPos))
             {
-                _state = MakeupState.Apply;
-                _handView.EnableDragging(false);
-
-                _handView.PlayApply(() =>
+                if (_makeupStrategies.TryGetValue(_currentStyle.Type, out var strategy))
                 {
-                    _handView.ReturnTo(_currentStep.ItemDefaultPosition, () =>
-                    {
-                        _currentStep.ItemRoot.position = _currentStep.ItemDefaultPosition.position;
-                        _currentStep.ItemGraphics.SetActive(true);
-                        _state = MakeupState.Idle;
-                    });
-                });
-
-                _resultRenderer?.ApplyMakeup(_currentStep.Style, _currentStep.ResultAlpha);
+                    strategy.OnHandReleased();
+                }
             }
         }
 
         public void Reset()
         {
-            _state = MakeupState.Idle;
             _hasStep = false;
+        }
+
+        public void Dispose()
+        {
+            _gameEventsDispatcher.RemoveListener<MakeupEndEvent>(OnMakeupEnd);
+        }
+
+        private void OnMakeupEnd(MakeupEndEvent @event)
+        {
+            Reset();
         }
     }
 }

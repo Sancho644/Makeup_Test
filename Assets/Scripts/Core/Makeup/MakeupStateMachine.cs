@@ -7,7 +7,6 @@ namespace Core.Makeup
 {
     public class MakeupStateMachine : MonoBehaviour
     {
-        [SerializeField] private HandAnimator handAnimator;
         [SerializeField] private HandView handView;
 
         [Inject] private readonly IGameEventsDispatcher _gameEventsDispatcher;
@@ -16,23 +15,23 @@ namespace Core.Makeup
         private void Awake()
         {
             _gameEventsDispatcher.AddListener<TapMakeupHandlerEvent>(OnTapHandler);
-            handView.OnHandRelease += OnHandReleased;
+            _gameEventsDispatcher.AddListener<HandlePointerReleaseEvent>(OnHandReleased);
         }
 
         private void OnDestroy()
         {
             _gameEventsDispatcher.RemoveListener<TapMakeupHandlerEvent>(OnTapHandler);
-            handView.OnHandRelease -= OnHandReleased;
+            _gameEventsDispatcher.RemoveListener<HandlePointerReleaseEvent>(OnHandReleased);
+        }
+
+        private void OnHandReleased(HandlePointerReleaseEvent @event)
+        {
+            _makeupFlowService.OnHandReleased(@event.Position);
         }
 
         private void OnTapHandler(TapMakeupHandlerEvent @event)
         {
             _makeupFlowService.StartStep(@event.Style);
-        }
-
-        private void OnHandReleased(Vector2 screenPos)
-        {
-            _makeupFlowService.OnHandReleased(screenPos);
         }
     }
 }
