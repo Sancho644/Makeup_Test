@@ -8,6 +8,7 @@
 * UI-рука разделена на HandView (ввод/drag) и HandAnimator (анимации), объединены фасадом MakeupHandView. См. HandView.cs, HandAnimator.cs, MakeupHandView.cs.
 * Применение результата — через FaceMakeupRenderer, который управляет MakeupItemAnimator (fade). См. FaceMakeupRenderer.cs, MakeupItemAnimator.cs.
 * Ввод пользователя для выбора стиля — MakeupTapHandler (PointerDown → событие). См. MakeupTapHandler.cs.
+
 Основные технические моменты реализации:
 1. Используется DI (Zenject): GameInstaller связывает настройки/виды/сервисы, GameEventsInstaller — событийную шину. См. GameInstaller.cs, GameEventsInstaller.cs.
 2. Архитектура “стратегий” позволяет разную последовательность действий для разных типов макияжа, но общий поток задаёт MakeupFlowService.
