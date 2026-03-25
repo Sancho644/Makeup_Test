@@ -32,7 +32,7 @@ namespace UI.Animations
             _sequence?.Kill(true);
 
             var startPos = transform.position;
-            var upPos = (startPos + Vector3.up) * jumpHeight;
+            var upPos = startPos + Vector3.up * jumpHeight;
             _sequence = DOTween.Sequence();
 
             _sequence.Append(transform.DOJump(upPos, jumpPower, numJumps, jumpDuration).SetEase(Ease.OutQuad));
