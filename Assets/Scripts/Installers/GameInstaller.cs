@@ -1,5 +1,4 @@
-﻿using Core;
-using Core.Makeup;
+﻿using Core.Makeup;
 using Core.Makeup.Settings;
 using Core.Makeup.View;
 using UnityEngine;
