@@ -1,5 +1,6 @@
 ﻿using Core.Makeup.Events;
 using GameEvents;
+using UI.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,6 +11,7 @@ namespace Core.Makeup
     {
         [SerializeField] private GameObject brushTip;
         [SerializeField] private Image brushTipImage;
+        [SerializeField] private FadeTween fadeTween;
 
         [Inject] private readonly IMakeupStepResolver _stepResolver;
         [Inject] private readonly IGameEventsDispatcher _gameEventsDispatcher;
@@ -23,6 +25,8 @@ namespace Core.Makeup
         private void Start()
         {
             brushTip.SetActive(false);
+            fadeTween.Setup(0, () => { });
+            fadeTween.Play();
         }
 
         private void OnDestroy()
@@ -37,12 +41,15 @@ namespace Core.Makeup
             {
                 brushTipImage.sprite = step.BrushColorSprite;
                 brushTip.SetActive(true);
+                fadeTween.Setup(1, () => { });
+                fadeTween.Play();
             }
         }
 
         private void OnMakeupEnd(MakeupEndEvent @event)
         {
-            brushTip.SetActive(false);
+            fadeTween.Setup(0, () => { brushTip.SetActive(false); });
+            fadeTween.Play();
         }
     }
 }

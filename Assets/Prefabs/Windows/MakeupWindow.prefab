@@ -2569,6 +2569,8 @@ GameObject:
   - component: {fileID: 8778969711735777241}
   - component: {fileID: 4953052786398843915}
   - component: {fileID: 2295130677407338365}
+  - component: {fileID: 5760996621753598697}
+  - component: {fileID: 509845140966094578}
   m_Layer: 5
   m_Name: BrushTip
   m_TagString: Untagged
@@ -2633,6 +2635,33 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &5760996621753598697
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737922895629220731}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &509845140966094578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737922895629220731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f008e1ed4d84b29a65ae00255ec2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 4
+  canvasGroup: {fileID: 5760996621753598697}
+  duration: 0.5
 --- !u!1 &2835170750940289040
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,6 +4955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brushTip: {fileID: 2737922895629220731}
   brushTipImage: {fileID: 2295130677407338365}
+  fadeTween: {fileID: 509845140966094578}
 --- !u!1 &5992953971782201242
 GameObject:
   m_ObjectHideFlags: 0
