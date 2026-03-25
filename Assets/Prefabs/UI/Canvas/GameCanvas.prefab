@@ -266,6 +266,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1222334571909493788, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222334571909493788, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222334571909493788, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222334571909493788, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222334571909493788, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222334571909493788, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224637754318251524, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224637754318251524, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224637754318251524, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224637754318251524, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224637754318251524, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224637754318251524, guid: e731a2b63f68316479d42af2180f9108, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6241318981716358002, guid: e731a2b63f68316479d42af2180f9108, type: 3}
       propertyPath: m_Name
       value: MakeupWindow
