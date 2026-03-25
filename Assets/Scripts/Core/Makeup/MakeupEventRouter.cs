@@ -8,7 +8,7 @@ namespace Core.Makeup
     public class MakeupEventRouter : MonoBehaviour
     {
         [Inject] private readonly IGameEventsDispatcher _gameEventsDispatcher;
-        [Inject] private readonly IMakeupFlowService _makeupFlowService;
+        [Inject] private readonly IMakeupSequenceController _makeupSequenceController;
 
         private void Awake()
         {
@@ -24,12 +24,12 @@ namespace Core.Makeup
 
         private void OnHandReleased(HandlePointerReleaseEvent @event)
         {
-            _makeupFlowService.OnHandReleased(@event.Position);
+            _makeupSequenceController.OnHandReleased(@event.Position);
         }
 
         private void OnTapHandler(TapMakeupHandlerEvent @event)
         {
-            _makeupFlowService.StartStep(@event.Style);
+            _makeupSequenceController.StartStep(@event.Style);
         }
     }
 }

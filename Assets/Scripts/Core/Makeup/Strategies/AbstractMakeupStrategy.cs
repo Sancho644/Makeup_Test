@@ -1,4 +1,5 @@
-﻿using Core.Makeup.Events;
+﻿using Core.Makeup.Domain;
+using Core.Makeup.Events;
 using GameEvents;
 
 namespace Core.Makeup
@@ -7,19 +8,19 @@ namespace Core.Makeup
     {
         public abstract MakeupStepData Step { get; protected set; }
 
-        protected readonly IMakeupStepProvider StepProvider;
-        protected readonly IMakeupHandView HandView;
+        protected readonly IMakeupStepResolver StepResolver;
+        protected readonly IHandPresentation HandPresentation;
         protected readonly IMakeupResultRenderer ResultRenderer;
         protected readonly IGameEventsDispatcher GameEventsDispatcher;
 
         public AbstractMakeupStrategy(
-            IMakeupStepProvider stepProvider,
-            IMakeupHandView handView,
+            IMakeupStepResolver stepResolver,
+            IHandPresentation handPresentation,
             IMakeupResultRenderer resultRenderer,
             IGameEventsDispatcher gameEventsDispatcher)
         {
-            StepProvider = stepProvider;
-            HandView = handView;
+            StepResolver = stepResolver;
+            HandPresentation = handPresentation;
             ResultRenderer = resultRenderer;
             GameEventsDispatcher = gameEventsDispatcher;
         }

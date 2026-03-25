@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.Makeup.Domain;
 using Core.Makeup.Events;
 using GameEvents;
 using UnityEngine;

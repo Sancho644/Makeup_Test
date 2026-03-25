@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Core.Makeup.View
 {
     [RequireComponent(typeof(HandAnimator), typeof(HandDragController))]
-    public class HandPresentation : MonoBehaviour, IMakeupHandView
+    public class HandPresentation : MonoBehaviour, IHandPresentation
     {
         [SerializeField] private HandAnimator handAnimator;
         [SerializeField] private HandDragController handDragController;

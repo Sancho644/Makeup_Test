@@ -1,3 +1,4 @@
+using Core.Makeup.Domain;
 using Core.Makeup.Events;
 using GameEvents;
 using UnityEngine;

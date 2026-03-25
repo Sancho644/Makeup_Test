@@ -1,4 +1,5 @@
-﻿using GameEvents;
+﻿using Core.Makeup.Domain;
+using GameEvents;
 
 namespace Core.Makeup.Events
 {

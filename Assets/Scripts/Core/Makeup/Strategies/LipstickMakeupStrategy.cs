@@ -1,4 +1,5 @@
-﻿using GameEvents;
+﻿using Core.Makeup.Domain;
+using GameEvents;
 using UnityEngine;
 
 namespace Core.Makeup
@@ -7,15 +8,15 @@ namespace Core.Makeup
     {
         public override MakeupStepData Step { get; protected set; }
 
-        public LipstickMakeupStrategy(IMakeupStepProvider stepProvider, IMakeupHandView handView,
-            IMakeupResultRenderer resultRenderer, IGameEventsDispatcher gameEventsDispatcher) : base(stepProvider,
-            handView, resultRenderer, gameEventsDispatcher)
+        public LipstickMakeupStrategy(IMakeupStepResolver stepResolver, IHandPresentation handPresentation,
+            IMakeupResultRenderer resultRenderer, IGameEventsDispatcher gameEventsDispatcher) : base(stepResolver,
+            handPresentation, resultRenderer, gameEventsDispatcher)
         {
         }
 
         public override void Start(MakeupStyle style)
         {
-            if (StepProvider == null || !StepProvider.TryGetStep(style, out var step))
+            if (StepResolver == null || !StepResolver.TryGetStep(style, out var step))
             {
                 End();
                 return;
@@ -23,18 +24,18 @@ namespace Core.Makeup
 
             Step = step;
 
-            HandView.ShowHand(() =>
+            HandPresentation.ShowHand(() =>
             {
-                HandView.MoveTo(Step.ItemDefaultPosition, () =>
+                HandPresentation.MoveTo(Step.ItemDefaultPosition, () =>
                 {
-                    var itemPosition = HandView.GetHandItemPosition();
+                    var itemPosition = HandPresentation.GetHandItemPosition();
                     Step.ItemRoot.SetParent(itemPosition, true);
                     Step.MakeupApplicatorAnimator.PlayJumpAnimation(itemPosition, () =>
                     {
                         Step.ItemRoot.anchoredPosition = Vector2.zero;
                         Step.ItemRoot.localScale = Vector3.one;
                         Step.ItemRoot.localRotation = Quaternion.identity;
-                        HandView.MoveTo(Step.PrepareMakeupPosition, () => { HandView.EnableDragging(true); });
+                        HandPresentation.MoveTo(Step.PrepareMakeupPosition, () => { HandPresentation.EnableDragging(true); });
                     });
                 });
             });
@@ -47,17 +48,17 @@ namespace Core.Makeup
                 return;
             }
 
-            HandView.EnableDragging(false);
+            HandPresentation.EnableDragging(false);
 
-            HandView.MoveTo(Step.MakeupPosition, () =>
+            HandPresentation.MoveTo(Step.MakeupPosition, () =>
             {
-                HandView.PlayMakeup(() =>
+                HandPresentation.PlayMakeup(() =>
                 {
-                    HandView.MoveTo(Step.ItemDefaultPosition, () =>
+                    HandPresentation.MoveTo(Step.ItemDefaultPosition, () =>
                     {
                         Step.ItemRoot.transform.SetParent(Step.ItemDefaultPosition, false);
                         Step.ItemRoot.anchoredPosition = Vector2.zero;
-                        HandView.ReturnTo(End);
+                        HandPresentation.ReturnTo(End);
                     });
                 });
 

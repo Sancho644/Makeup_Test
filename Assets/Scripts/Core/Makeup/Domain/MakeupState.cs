@@ -1,4 +1,4 @@
-﻿namespace Core.Makeup
+﻿namespace Core.Makeup.Domain
 {
     public enum MakeupState
     {

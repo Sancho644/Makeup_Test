@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core.Makeup.Domain;
+using UnityEngine;
 
 namespace Core.Makeup.View
 {

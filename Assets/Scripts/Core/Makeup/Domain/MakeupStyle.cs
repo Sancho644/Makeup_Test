@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Makeup
+namespace Core.Makeup.Domain
 {
     [Serializable]
     public struct MakeupStyle : IEquatable<MakeupStyle>

@@ -24,7 +24,7 @@ namespace Installers
             Container.BindInterfacesAndSelfTo<MakeupStepResolver>().AsSingle();
             
             // View + Renderer
-            Container.Bind<IMakeupHandView>().FromInstance(handPresentation).AsSingle();
+            Container.Bind<IHandPresentation>().FromInstance(handPresentation).AsSingle();
             Container.Bind<IMakeupResultRenderer>().FromInstance(faceMakeupRenderer).AsSingle();
             Container.Bind<IFaceZoneChecker>().FromInstance(faceZoneChecker).AsSingle();
 

@@ -1,3 +1,5 @@
+using Core.Makeup.Domain;
+
 namespace Core.Makeup
 {
     public interface IMakeupResultRenderer

@@ -1,8 +1,9 @@
+using Core.Makeup.Domain;
 using Core.Makeup.Settings;
 
 namespace Core.Makeup
 {
-    public class MakeupStepResolver : IMakeupStepProvider
+    public class MakeupStepResolver : IMakeupStepResolver
     {
         private readonly MakeupStepStaticSettings _staticSettings;
         private readonly MakeupWindowReferences _windowReferences;

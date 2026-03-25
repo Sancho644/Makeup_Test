@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
+using Core.Makeup.Domain;
 using Core.Makeup.Events;
 using GameEvents;
 using UnityEngine;
 
 namespace Core.Makeup
 {
-    public class MakeupSequenceController : IMakeupFlowService, IDisposable
+    public class MakeupSequenceController : IMakeupSequenceController, IDisposable
     {
-        private readonly IMakeupStepProvider _stepProvider;
-        private readonly IMakeupHandView _handView;
+        private readonly IMakeupStepResolver _stepResolver;
+        private readonly IHandPresentation _handPresentation;
         private readonly IMakeupResultRenderer _resultRenderer;
         private readonly IFaceZoneChecker _faceZoneChecker;
         private readonly IGameEventsDispatcher _gameEventsDispatcher;
@@ -20,14 +21,14 @@ namespace Core.Makeup
         private readonly Dictionary<MakeupType, AbstractMakeupStrategy> _makeupStrategies;
 
         public MakeupSequenceController(
-            IMakeupStepProvider stepProvider,
-            IMakeupHandView handView,
+            IMakeupStepResolver stepResolver,
+            IHandPresentation handPresentation,
             IMakeupResultRenderer resultRenderer,
             IFaceZoneChecker faceZoneChecker,
             IGameEventsDispatcher gameEventsDispatcher)
         {
-            _stepProvider = stepProvider;
-            _handView = handView;
+            _stepResolver = stepResolver;
+            _handPresentation = handPresentation;
             _resultRenderer = resultRenderer;
             _faceZoneChecker = faceZoneChecker;
             _gameEventsDispatcher = gameEventsDispatcher;
@@ -38,15 +39,15 @@ namespace Core.Makeup
             {
                 {
                     MakeupType.Cream,
-                    new CreamMakeupStrategy(_stepProvider, _handView, _resultRenderer, _gameEventsDispatcher)
+                    new CreamMakeupStrategy(_stepResolver, _handPresentation, _resultRenderer, _gameEventsDispatcher)
                 },
                 {
                     MakeupType.Eyeshadow,
-                    new EyeshadowMakeupStrategy(_stepProvider, _handView, _resultRenderer, _gameEventsDispatcher)
+                    new EyeshadowMakeupStrategy(_stepResolver, _handPresentation, _resultRenderer, _gameEventsDispatcher)
                 },
                 {
                     MakeupType.Lipstick,
-                    new LipstickMakeupStrategy(_stepProvider, _handView, _resultRenderer, _gameEventsDispatcher)
+                    new LipstickMakeupStrategy(_stepResolver, _handPresentation, _resultRenderer, _gameEventsDispatcher)
                 }
             };
         }

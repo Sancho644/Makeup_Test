@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Makeup.Domain;
 using UI.Animations;
 using UnityEngine;
 

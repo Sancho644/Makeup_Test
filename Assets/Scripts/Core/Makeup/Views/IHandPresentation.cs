@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.Makeup
 {
-    public interface IMakeupHandView
+    public interface IHandPresentation
     {
         public void ShowHand(Action onComplete);
         public void MoveTo(RectTransform target, Action onComplete);
