@@ -1,4 +1,5 @@
 ﻿using Core.Makeup.Domain;
+using Core.Makeup.Events;
 using GameEvents;
 using UnityEngine;
 
@@ -41,6 +42,7 @@ namespace Core.Makeup
                             {
                                 HandPresentation.PlayMakeup(() =>
                                 {
+                                    GameEventsDispatcher.Dispatch(new BrushColorChangedEvent(Step.Style));
                                     HandPresentation.MoveTo(Step.PrepareMakeupPosition,
                                         () => { HandPresentation.EnableDragging(true); });
                                 });

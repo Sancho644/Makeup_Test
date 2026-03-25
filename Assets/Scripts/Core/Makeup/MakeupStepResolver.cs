@@ -43,7 +43,8 @@ namespace Core.Makeup
                 sceneStep.MakeupPosition,
                 sceneStep.ColorPalettePosition,
                 sceneStep.MakeupApplicatorAnimator,
-                staticStep.ResultAlpha);
+                staticStep.ResultAlpha,
+                staticStep.BrushColorSprite);
 
             return true;
         }

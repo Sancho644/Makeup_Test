@@ -13,6 +13,7 @@ namespace Core.Makeup
         public readonly RectTransform ColorPalettePosition;
         public readonly MakeupApplicatorAnimator MakeupApplicatorAnimator;
         public readonly float ResultAlpha;
+        public readonly Sprite BrushColorSprite;
 
         public MakeupStepData(
             MakeupStyle style,
@@ -22,7 +23,8 @@ namespace Core.Makeup
             RectTransform makeupPosition,
             RectTransform colorPalettePosition,
             MakeupApplicatorAnimator makeupApplicatorAnimator,
-            float resultAlpha)
+            float resultAlpha,
+            Sprite brushColorSprite)
         {
             Style = style;
             ItemRoot = itemRoot;
@@ -32,6 +34,7 @@ namespace Core.Makeup
             ColorPalettePosition = colorPalettePosition;
             MakeupApplicatorAnimator = makeupApplicatorAnimator;
             ResultAlpha = resultAlpha;
+            BrushColorSprite = brushColorSprite;
         }
 
         public bool IsEmpty()

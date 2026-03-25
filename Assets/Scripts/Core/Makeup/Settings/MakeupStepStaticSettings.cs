@@ -15,6 +15,7 @@ namespace Core.Makeup.Settings
         public class StaticStep
         {
             public MakeupStyle Style;
+            public Sprite BrushColorSprite;
             public float ResultAlpha;
         }
 
