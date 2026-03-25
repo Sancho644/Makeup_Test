@@ -33,6 +33,8 @@ namespace UI
 
         private void Refresh(bool value)
         {
+            toggle.interactable = !value;
+            
             activeGraphics.SetActive(value);
             inactiveGraphics.SetActive(!value);
             activeTab.SetActive(value);
