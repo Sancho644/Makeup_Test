@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handAnimator: {fileID: 3905641040872320469}
-  handView: {fileID: 8387151583538198524}
+  handDragController: {fileID: 0}
 --- !u!114 &2056863663721852431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 6608198502367758012}
   moveTween: {fileID: 2390501939963314958}
   fadeTween: {fileID: 8967531670509376411}
-  makeupTween: {fileID: 0}
+  zigZagTween: {fileID: 8554587528963766009}
 --- !u!114 &5848310719019880920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   makeupStepStaticSettings: {fileID: 11400000, guid: 5df7af545943efb4f9b0212110d3e817, type: 2}
   makeupWindowReferences: {fileID: 1437517414749223896}
-  makeupHandView: {fileID: 4791427838790555348}
+  handPresentation: {fileID: 4791427838790555348}
   faceMakeupRenderer: {fileID: 1630708709472179128}
   faceZoneChecker: {fileID: 6797693072956728551}
 --- !u!1 &3873945744414510718
@@ -740,15 +740,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce1c28e6c1e43349a9b4672e2cfdd35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8387151583538198524 stripped
+--- !u!114 &8554587528963766009 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6442993462813272105, guid: 18d8056a57bd3324bbf9546ebae4ff23, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6608814260520692012, guid: 18d8056a57bd3324bbf9546ebae4ff23, type: 3}
   m_PrefabInstance: {fileID: 3246877106713403349}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc6ee29fc4847c08d8fb428708ca5f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c02865212cb45cf961dd0519e6ffd00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8648610408892491601 stripped
