@@ -6,7 +6,6 @@ namespace UI.Animations
 {
     public class JumpTween : MonoBehaviour
     {
-        [SerializeField] private RectTransform targetPosition;
         [SerializeField] private float jumpHeight = 100f;
         [SerializeField] private float moveDuration = 0.6f;
         [SerializeField] private float jumpPower = 50f;
@@ -14,30 +13,30 @@ namespace UI.Animations
         [SerializeField] private int numJumps = 1;
 
         private Sequence _sequence;
-        private Transform _itemPosition;
+        private Transform _targetPosition;
         private Action _onComplete;
 
-        public void Setup(RectTransform itemPosition, Action onComplete)
+        public void Setup(RectTransform targetPosition, Action onComplete)
         {
-            _itemPosition = itemPosition;
+            _targetPosition = targetPosition;
             _onComplete = onComplete;
         }
 
         public void Play()
         {
-            if (_itemPosition == null)
+            if (_targetPosition == null)
             {
                 return;
             }
 
             _sequence?.Kill(true);
 
-            var startPos = _itemPosition.position;
-            var upPos = (startPos + Vector3.up + Vector3.right) * jumpHeight;
+            var startPos = transform.position;
+            var upPos = (startPos + Vector3.up) * jumpHeight;
             _sequence = DOTween.Sequence();
 
-            _sequence.Append(_itemPosition.DOJump(upPos, jumpPower, numJumps, jumpDuration).SetEase(Ease.OutQuad));
-            _sequence.Append(_itemPosition.DOMove(targetPosition.position, moveDuration).SetEase(Ease.InOutQuad));
+            _sequence.Append(transform.DOJump(upPos, jumpPower, numJumps, jumpDuration).SetEase(Ease.OutQuad));
+            _sequence.Append(transform.DOMove(_targetPosition.position, moveDuration).SetEase(Ease.InOutQuad));
             _sequence.OnComplete(() => { _onComplete?.Invoke(); });
             _sequence.Play();
         }

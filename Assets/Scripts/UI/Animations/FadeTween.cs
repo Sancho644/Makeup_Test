@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace UI.Animations
 {
+    [RequireComponent(typeof(CanvasGroup))]
     public class FadeTween : MonoBehaviour
     {
         [SerializeField] private Ease ease = Ease.InOutSine;
