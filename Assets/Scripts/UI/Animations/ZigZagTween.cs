@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UI.Animations
 {
-    public class MakeupTween : MonoBehaviour
+    public class ZigZagTween : MonoBehaviour
     {
         [SerializeField] private int steps = 6;
         [SerializeField] private float stepX = 2f;

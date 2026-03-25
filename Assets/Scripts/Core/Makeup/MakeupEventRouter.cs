@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Core.Makeup
 {
-    public class MakeupStateMachine : MonoBehaviour
+    public class MakeupEventRouter : MonoBehaviour
     {
         [Inject] private readonly IGameEventsDispatcher _gameEventsDispatcher;
         [Inject] private readonly IMakeupFlowService _makeupFlowService;

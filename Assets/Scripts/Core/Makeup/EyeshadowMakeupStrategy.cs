@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Core.Makeup
 {
-    public class EyesShadowsMakeupStrategy : AbstractMakeupStrategy
+    public class EyeshadowMakeupStrategy : AbstractMakeupStrategy
     {
-        public override MakeupStepRuntime Step { get; protected set; }
+        public override MakeupStepData Step { get; protected set; }
 
-        public EyesShadowsMakeupStrategy(IMakeupStepProvider stepProvider, IMakeupHandView handView,
+        public EyeshadowMakeupStrategy(IMakeupStepProvider stepProvider, IMakeupHandView handView,
             IMakeupResultRenderer resultRenderer, IGameEventsDispatcher gameEventsDispatcher) : base(stepProvider,
             handView,
             resultRenderer, gameEventsDispatcher)

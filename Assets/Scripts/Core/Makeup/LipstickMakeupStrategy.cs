@@ -5,7 +5,7 @@ namespace Core.Makeup
 {
     public class LipstickMakeupStrategy : AbstractMakeupStrategy
     {
-        public override MakeupStepRuntime Step { get; protected set; }
+        public override MakeupStepData Step { get; protected set; }
 
         public LipstickMakeupStrategy(IMakeupStepProvider stepProvider, IMakeupHandView handView,
             IMakeupResultRenderer resultRenderer, IGameEventsDispatcher gameEventsDispatcher) : base(stepProvider,

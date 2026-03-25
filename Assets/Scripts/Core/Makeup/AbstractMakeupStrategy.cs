@@ -5,7 +5,7 @@ namespace Core.Makeup
 {
     public abstract class AbstractMakeupStrategy
     {
-        public abstract MakeupStepRuntime Step { get; protected set; }
+        public abstract MakeupStepData Step { get; protected set; }
 
         protected readonly IMakeupStepProvider StepProvider;
         protected readonly IMakeupHandView HandView;

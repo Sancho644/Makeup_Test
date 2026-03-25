@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Makeup
 {
-    public readonly struct MakeupStepRuntime
+    public readonly struct MakeupStepData
     {
         public readonly MakeupStyle Style;
         public readonly RectTransform ItemRoot;
@@ -13,7 +13,7 @@ namespace Core.Makeup
         public readonly MakeupApplicatorAnimator MakeupApplicatorAnimator;
         public readonly float ResultAlpha;
 
-        public MakeupStepRuntime(
+        public MakeupStepData(
             MakeupStyle style,
             RectTransform itemRoot,
             RectTransform itemDefaultPosition,

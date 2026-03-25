@@ -2,6 +2,6 @@ namespace Core.Makeup
 {
     public interface IMakeupStepProvider
     {
-        bool TryGetStep(MakeupStyle style, out MakeupStepRuntime step);
+        public bool TryGetStep(MakeupStyle style, out MakeupStepData step);
     }
 }

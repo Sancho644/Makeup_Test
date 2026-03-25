@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Core.Makeup
 {
-    public class HandView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class HandDragController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private RectTransform handRoot;
 

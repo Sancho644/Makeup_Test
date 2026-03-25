@@ -4,6 +4,6 @@ namespace Core.Makeup
 {
     public interface IFaceZoneChecker
     {
-        bool IsInFaceZone(Vector2 screenPos);
+        public bool IsInFaceZone(Vector2 screenPos);
     }
 }

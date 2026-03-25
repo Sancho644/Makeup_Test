@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Core.Makeup.View
 {
-    [RequireComponent(typeof(HandAnimator), typeof(HandView))]
-    public class MakeupHandView : MonoBehaviour, IMakeupHandView
+    [RequireComponent(typeof(HandAnimator), typeof(HandDragController))]
+    public class HandPresentation : MonoBehaviour, IMakeupHandView
     {
         [SerializeField] private HandAnimator handAnimator;
-        [SerializeField] private HandView handView;
+        [SerializeField] private HandDragController handDragController;
 
         public void ShowHand(Action onComplete)
         {
@@ -36,7 +36,7 @@ namespace Core.Makeup.View
 
         public void EnableDragging(bool enable)
         {
-            handView.EnableDragging(enable);
+            handDragController.EnableDragging(enable);
         }
     }
 }

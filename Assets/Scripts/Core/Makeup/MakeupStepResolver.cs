@@ -15,7 +15,7 @@ namespace Core.Makeup
             _windowReferences = windowReferences;
         }
 
-        public bool TryGetStep(MakeupStyle style, out MakeupStepRuntime step)
+        public bool TryGetStep(MakeupStyle style, out MakeupStepData step)
         {
             step = default;
 
@@ -34,7 +34,7 @@ namespace Core.Makeup
                 return false;
             }
 
-            step = new MakeupStepRuntime(
+            step = new MakeupStepData(
                 style,
                 sceneStep.ItemRoot,
                 sceneStep.ItemDefaultPosition,

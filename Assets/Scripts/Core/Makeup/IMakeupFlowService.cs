@@ -4,8 +4,8 @@ namespace Core.Makeup
 {
     public interface IMakeupFlowService
     {
-        void StartStep(MakeupStyle style);
-        void OnHandReleased(Vector2 screenPos);
-        void Reset();
+        public void StartStep(MakeupStyle style);
+        public void OnHandReleased(Vector2 screenPos);
+        public void Reset();
     }
 }

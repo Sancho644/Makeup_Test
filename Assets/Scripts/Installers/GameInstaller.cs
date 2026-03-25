@@ -10,7 +10,7 @@ namespace Installers
     {
         [SerializeField] private MakeupStepStaticSettings makeupStepStaticSettings;
         [SerializeField] private MakeupWindowReferences makeupWindowReferences;
-        [SerializeField] private MakeupHandView makeupHandView;
+        [SerializeField] private HandPresentation handPresentation;
         [SerializeField] private FaceMakeupRenderer faceMakeupRenderer;
         [SerializeField] private FaceZoneChecker faceZoneChecker;
 
@@ -24,12 +24,12 @@ namespace Installers
             Container.BindInterfacesAndSelfTo<MakeupStepResolver>().AsSingle();
             
             // View + Renderer
-            Container.Bind<IMakeupHandView>().FromInstance(makeupHandView).AsSingle();
+            Container.Bind<IMakeupHandView>().FromInstance(handPresentation).AsSingle();
             Container.Bind<IMakeupResultRenderer>().FromInstance(faceMakeupRenderer).AsSingle();
             Container.Bind<IFaceZoneChecker>().FromInstance(faceZoneChecker).AsSingle();
 
             // Flow
-            Container.BindInterfacesAndSelfTo<MakeupFlowService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MakeupSequenceController>().AsSingle();
         }
     }
 }

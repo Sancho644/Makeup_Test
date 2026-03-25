@@ -13,7 +13,7 @@ namespace Core.Makeup
         [Header("Animations")] 
         [SerializeField] private MoveTween moveTween;
         [SerializeField] private FadeTween fadeTween;
-        [SerializeField] private MakeupTween makeupTween;
+        [SerializeField] private ZigZagTween zigZagTween;
 
         public RectTransform ItemPosition => itemPosition;
 
@@ -36,8 +36,8 @@ namespace Core.Makeup
 
         public void PlayMakeupAnimation(Action onComplete)
         {
-            makeupTween.Setup(onComplete);
-            makeupTween.Play();
+            zigZagTween.Setup(onComplete);
+            zigZagTween.Play();
         }
 
         public void PlayFinishMakeupAnimation(Action onComplete)

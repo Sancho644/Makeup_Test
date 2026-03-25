@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Core.Makeup
 {
-    public class MakeupFlowService : IMakeupFlowService, IDisposable
+    public class MakeupSequenceController : IMakeupFlowService, IDisposable
     {
         private readonly IMakeupStepProvider _stepProvider;
         private readonly IMakeupHandView _handView;
@@ -19,7 +19,7 @@ namespace Core.Makeup
 
         private readonly Dictionary<MakeupType, AbstractMakeupStrategy> _makeupStrategies;
 
-        public MakeupFlowService(
+        public MakeupSequenceController(
             IMakeupStepProvider stepProvider,
             IMakeupHandView handView,
             IMakeupResultRenderer resultRenderer,
@@ -42,7 +42,7 @@ namespace Core.Makeup
                 },
                 {
                     MakeupType.Eyeshadow,
-                    new EyesShadowsMakeupStrategy(_stepProvider, _handView, _resultRenderer, _gameEventsDispatcher)
+                    new EyeshadowMakeupStrategy(_stepProvider, _handView, _resultRenderer, _gameEventsDispatcher)
                 },
                 {
                     MakeupType.Lipstick,
