@@ -360,7 +360,6 @@ GameObject:
   - component: {fileID: 4165032774311100718}
   - component: {fileID: 7247133400020013499}
   - component: {fileID: 7951650415988585689}
-  - component: {fileID: 5623092871138872678}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Untagged
@@ -406,8 +405,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 4851756008410645660}
   moveTween: {fileID: 4165032774311100718}
   fadeTween: {fileID: 7247133400020013499}
-  makeupCreamTween: {fileID: 7951650415988585689}
-  makeupTween: {fileID: 5623092871138872678}
+  makeupTween: {fileID: 7951650415988585689}
 --- !u!114 &7819596994752493020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,9 +444,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 1.1
-  moveDuration: 1
+  moveDuration: 0.5
   jumpPower: 2
-  jumpDuration: 1
+  jumpDuration: 0.5
   numJumps: 1
 --- !u!114 &4165032774311100718
 MonoBehaviour:
@@ -491,23 +489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steps: 3
-  stepX: 100
-  stepY: 100
-  duration: 1
---- !u!114 &5623092871138872678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436199292687222604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277484bff3d543ff8c2655c5e030e536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  steps: 3
   stepX: 50
+  stepY: 0
   duration: 0.3
 --- !u!1 &445730035630582468
 GameObject:
