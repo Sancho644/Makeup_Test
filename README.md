@@ -1,4 +1,4 @@
-##Как устроен код 
+## Как устроен код 
 
 Система разделена на “Core/Makeup” и “GameEvents” с DI через Zenject:
 * GameEventsDispatcher — простая шина событий. GameEventsController в Update выполняет очередь DispatchOnUpdate. См. GameEventsDispatcher.cs, GameEventsController.cs.
