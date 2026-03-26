@@ -1,8 +1,9 @@
 ﻿using Core.Makeup.Domain;
 using Core.Makeup.Events;
+using Core.Makeup.Views;
 using GameEvents;
 
-namespace Core.Makeup
+namespace Core.Makeup.Strategies
 {
     public abstract class AbstractMakeupStrategy
     {

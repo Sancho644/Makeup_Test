@@ -1,7 +1,8 @@
 ﻿using Core.Makeup.Domain;
+using Core.Makeup.Views;
 using GameEvents;
 
-namespace Core.Makeup
+namespace Core.Makeup.Strategies
 {
     public class CreamMakeupStrategy : AbstractMakeupStrategy
     {
@@ -24,16 +25,24 @@ namespace Core.Makeup
 
             Step = step;
 
-            HandPresentation.ShowHand(() =>
-            {
-                var itemPosition = HandPresentation.GetHandItemPosition();
-                Step.MakeupApplicatorAnimator.PlayJumpAnimation(itemPosition,
-                    () =>
+            new ActionSequence()
+                .Step(done => HandPresentation.ShowHand(done))
+                .Step(done =>
+                {
+                    var itemPosition = HandPresentation.GetHandItemPosition();
+                    Step.MakeupApplicatorAnimator.PlayJumpAnimation(itemPosition, () =>
                     {
                         Step.ItemRoot.transform.SetParent(itemPosition);
-                        HandPresentation.MoveTo(Step.PrepareMakeupPosition, () => { HandPresentation.EnableDragging(true); });
+                        done();
                     });
-            });
+                })
+                .Step(done => HandPresentation.MoveTo(Step.PrepareMakeupPosition, done))
+                .Step(done =>
+                {
+                    HandPresentation.EnableDragging(true);
+                    done();
+                })
+                .Start();
         }
 
         public override void OnHandReleased()
@@ -44,22 +53,31 @@ namespace Core.Makeup
                 return;
             }
 
-            HandPresentation.EnableDragging(false);
-
-            HandPresentation.MoveTo(Step.MakeupPosition, () =>
-            {
-                HandPresentation.PlayMakeup(() =>
+            new ActionSequence()
+                .Step(done =>
                 {
-                    HandPresentation.MoveTo(Step.ItemDefaultPosition, () =>
-                    {
-                        Step.ItemRoot.transform.SetParent(Step.ItemDefaultPosition);
-                        Step.ItemRoot.position = Step.ItemDefaultPosition.position;
-                        HandPresentation.ReturnTo(End);
-                    });
-                });
-
-                ResultRenderer?.ApplyMakeup(Step.Style, Step.ResultAlpha);
-            });
+                    HandPresentation.EnableDragging(false);
+                    done();
+                })
+                .Step(done => HandPresentation.MoveTo(Step.MakeupPosition, done))
+                .Step(done =>
+                {
+                    ResultRenderer?.ApplyMakeup(Step.Style, Step.ResultAlpha);
+                    HandPresentation.PlayMakeup(done);
+                })
+                .Step(done => HandPresentation.MoveTo(Step.ItemDefaultPosition, done))
+                .Step(done =>
+                {
+                    Step.ItemRoot.transform.SetParent(Step.ItemDefaultPosition);
+                    Step.ItemRoot.position = Step.ItemDefaultPosition.position;
+                    done();
+                })
+                .Step(done => HandPresentation.ReturnTo(() =>
+                {
+                    End();
+                    done();
+                }))
+                .Start();
         }
     }
 }
