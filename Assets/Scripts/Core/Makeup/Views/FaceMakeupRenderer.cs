@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using Core.Makeup.Domain;
 using Core.Makeup.Events;
+using Core.Makeup.Input;
 using GameEvents;
 using UnityEngine;
 using Zenject;
 
-namespace Core.Makeup.View
+namespace Core.Makeup.Views
 {
     public class FaceMakeupRenderer : MonoBehaviour, IMakeupResultRenderer
     {

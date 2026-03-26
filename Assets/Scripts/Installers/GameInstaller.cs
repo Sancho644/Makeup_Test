@@ -1,6 +1,6 @@
 ﻿using Core.Makeup;
 using Core.Makeup.Settings;
-using Core.Makeup.View;
+using Core.Makeup.Views;
 using UnityEngine;
 using Zenject;
 

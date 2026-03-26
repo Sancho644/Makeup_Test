@@ -1,7 +1,7 @@
 using UI.Animations;
 using UnityEngine;
 
-namespace Core.Makeup
+namespace Core.Makeup.Input
 {
     [RequireComponent(typeof(CanvasGroup), typeof(FadeTween))]
     public class MakeupItemAnimator : MonoBehaviour

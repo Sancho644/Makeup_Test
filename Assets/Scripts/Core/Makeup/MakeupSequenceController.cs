@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Core.Makeup.Domain;
 using Core.Makeup.Events;
+using Core.Makeup.Strategies;
+using Core.Makeup.Views;
 using GameEvents;
 using UnityEngine;
 

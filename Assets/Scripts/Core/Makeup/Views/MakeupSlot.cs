@@ -1,7 +1,8 @@
 ﻿using Core.Makeup.Domain;
+using Core.Makeup.Input;
 using UnityEngine;
 
-namespace Core.Makeup.View
+namespace Core.Makeup.Views
 {
     [RequireComponent(typeof(MakeupItemAnimator))]
     public class MakeupSlot : MonoBehaviour

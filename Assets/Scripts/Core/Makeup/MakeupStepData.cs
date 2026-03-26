@@ -1,4 +1,5 @@
 using Core.Makeup.Domain;
+using Core.Makeup.Input;
 using UnityEngine;
 
 namespace Core.Makeup

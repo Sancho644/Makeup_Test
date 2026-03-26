@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace Core.Makeup
+namespace Core.Makeup.Input
 {
     public class MakeupTapHandler : MonoBehaviour, IPointerDownHandler
     {

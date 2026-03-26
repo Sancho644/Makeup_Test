@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core.Makeup.Domain;
+using Core.Makeup.Input;
 using UnityEngine;
 
 namespace Core.Makeup

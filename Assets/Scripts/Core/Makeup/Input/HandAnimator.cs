@@ -2,7 +2,7 @@
 using UI.Animations;
 using UnityEngine;
 
-namespace Core.Makeup
+namespace Core.Makeup.Input
 {
     public class HandAnimator : MonoBehaviour
     {

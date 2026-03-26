@@ -3,7 +3,7 @@ using Core.Makeup.Domain;
 using UI.Animations;
 using UnityEngine;
 
-namespace Core.Makeup
+namespace Core.Makeup.Input
 {
     [RequireComponent(typeof(JumpTween))]
     public class MakeupApplicatorAnimator : MonoBehaviour

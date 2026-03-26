@@ -1,6 +1,6 @@
 using Core.Makeup.Domain;
 
-namespace Core.Makeup
+namespace Core.Makeup.Views
 {
     public interface IMakeupResultRenderer
     {

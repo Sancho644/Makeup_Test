@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Makeup.View
+namespace Core.Makeup
 {
     public class FaceZoneChecker : MonoBehaviour, IFaceZoneChecker
     {

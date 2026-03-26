@@ -1,7 +1,8 @@
 using System;
+using Core.Makeup.Input;
 using UnityEngine;
 
-namespace Core.Makeup.View
+namespace Core.Makeup.Views
 {
     [RequireComponent(typeof(HandAnimator), typeof(HandDragController))]
     public class HandPresentation : MonoBehaviour, IHandPresentation

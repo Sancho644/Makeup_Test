@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace Core.Makeup
+namespace Core.Makeup.Input
 {
     public class HandDragController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {

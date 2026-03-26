@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Core.Makeup
+namespace Core.Makeup.Views
 {
     public interface IHandPresentation
     {
